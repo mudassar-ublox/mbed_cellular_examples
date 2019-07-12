@@ -1,0 +1,50 @@
+{
+    "config": {
+        "sock-type": "UDP",
+        "echo-server-hostname": {
+            "help": "Echo server host name.",
+            "value": "\"echo.mbedcloudtesting.com\""
+        },
+        "echo-server-port": {
+            "help": "Echo server port number.",
+            "value": 7
+        },
+        "cellular_sim_pin": {
+            "help": "PIN code",
+            "value": "\"0000\""
+        },
+        "apn": {
+            "help": "The APN string to use for this SIM/network, set to 0 if none",
+            "value": "\"internet\""
+        },
+        "username": {
+            "help": "The user name string to use for this APN, set to zero if none",
+            "value": 0
+        },
+        "password": {
+            "help": "The password string to use for this APN, set to 0 if none",
+            "value": 0
+        }
+  },
+    "target_overrides": {
+        "*": {
+            "target.network-default-interface-type": "CELLULAR",
+            "target.components_add": ["SD"],
+            "mbed-trace.enable": true,
+            "cellular.debug-at": true,
+            "lwip.ipv4-enabled": true,
+            "lwip.ppp-enabled": false,
+            "lwip.tcp-enabled": true,
+            "lwip.ethernet-enabled": false,
+            "platform.stdio-buffered-serial": true,
+            "platform.stdio-convert-newlines": false,
+            "platform.stdio-baud-rate": 9600,
+            "platform.default-serial-baud-rate": 115200,
+            "nsapi.default-cellular-sim-pin": "\"0000\"",
+            "nsapi.default-cellular-apn": 0,
+            "nsapi.default-cellular-plmn": 0,
+            "nsapi.default-cellular-username": 0,
+            "nsapi.default-cellular-password": 0
+        }
+    }
+}
